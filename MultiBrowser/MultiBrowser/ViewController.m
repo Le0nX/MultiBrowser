@@ -33,7 +33,13 @@
 }
 
 - (void)addWebView {
+    WKWebView *webView = [WKWebView new];
+    webView.UIDelegate = self;
     
+    [self.stackView addSubview:webView];
+    
+    NSURL *url = [NSURL URLWithString:@"https://www.apple.com/"];
+    [webView loadRequest:[NSURLRequest requestWithURL:url]];
 }
 
 - (void)deleteWebView {
